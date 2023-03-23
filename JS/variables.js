@@ -40,12 +40,12 @@ let choice = 0
 Clase ComprarFrutas
 Esta instancia objetos "Frutas" que van a ser compradas.
 Tiene dos propiedades:
-- codigo (se tiene que corresponder con la propiedad "id" de los objetos literales del array gondola)
+- código (se tiene que corresponder con la propiedad "id" de los objetos literales del array gondola)
 - cantidad (number que define la cantidad comprada de dicha fruta)
 
 tiene dos metodos:
-- consultarPrecio: recupera el precio/kg de la fruta en la gondola y devuelve el precio de la fruta en el pedido (cantidad * precio) Este metodo se utiliza en el siguiente metodo.
-- confirmarAgregado: Este muestra el costo de la cantidad de fruta a comprar y solicita una confirmacion para que la fruta sea agregada al pedido. Una vez confirmado, el metodo envia la instancia de la clase en cuestion (entera) al array que conforma el pedido "pedidoFrutas"
+- consultarPrecio: recupera el precio/kg de la fruta en la gondola y devuelve el precio de la fruta en el pedido (cantidad * precio) Este método se utiliza en el siguiente método.
+- confirmarAgregado: Este muestra el costo de la cantidad de fruta a comprar y solicita una confirmación para que la fruta sea agregada al pedido. Una vez confirmado, el método envia la instancia de la clase en cuestión (entera) al array que conforma el pedido "pedidoFrutas"
 
 */
 class comprarFrutas {
@@ -74,7 +74,7 @@ class comprarFrutas {
         let rta = confirm(`Usted desea ${this.cantidadKg}Kg de ${coincidencia.nombre} por un costo de ${costo}`)
 
         if(rta){
-            pedidoFrutas.push(new comprarFrutas(this.codigo, this.cantidadKg)) // Esta es la forma que encontre para poder enviar una instancia de esta misma clase, con un metodo propio a un array que contenga el pedido.
+            pedidoFrutas.push(new comprarFrutas(this.codigo, this.cantidadKg)) // Esta es la forma que encontre para poder enviar una instancia de esta misma clase, con un método propio a un array que contenga el pedido.
         }
         else{
             console.warn("El nuevo pedido fue cancelado.")

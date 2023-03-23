@@ -1,6 +1,6 @@
 
 
-//funcion que recupera una fruta de gondola segun su id. Generalmente se usa enviando un codigo de los objetos instanciados de comprarFruta, para entender que fruta de la gondola es la que esta comprando el usuario en su pedido.
+//función que recupera una fruta de gondola segun su id. Generalmente se usa enviando un código de los objetos instanciados de comprarFruta, para entender que fruta de la gondola es la que esta comprando el usuario en su pedido.
 function recuperaFruta(codigo){
     encontrado = gondola.find((fruta)=>{return fruta.id === codigo})
     return encontrado
@@ -13,14 +13,14 @@ function agregoCarrito(){
     let codigo = parseInt(prompt(msjFrutas))
 
     while(isNaN(codigo) || recuperaFruta(codigo)== undefined){
-            console.warn("Ha ingresado un valor erroneo. Por favor ingreselo nuevamente\n")
+            console.warn("Ha ingresado un valor erroneo. Por favor ingréselo nuevamente\n")
             codigo = parseInt(prompt(msjFrutas))       
     }
 
     let cantidad = parseFloat(prompt(`Ingrese la cantidad de kg de ${recuperaFruta(codigo).nombre} deseada`))
 
     while(cantidad < 0 || isNaN(cantidad)){
-        console.warn("Ha ingresado un valor de cantidad erroneo, por favor ingreselo nuevamente")
+        console.warn("Ha ingresado un valor de cantidad erroneo, por favor ingréselo nuevamente")
         cantidad = parseFloat(prompt(`Ingrese la cantidad de kg de ${recuperaFruta(codigo).nombre} deseada`))
     }
 
@@ -60,7 +60,7 @@ function calcularTotal(){
 
 
 //caso ver pedido
-//funcion que muestra todo el pedido 
+//función que muestra todo el pedido 
 function verPedido(){
     console.log('Su pedido esta formado por:\n')
     for(fruta of pedidoFrutas){
@@ -88,30 +88,30 @@ function calculaCuotas(precio, i){
 }
 
 //caso efectuar la compra
-//funcion que corrobora la accion de finalizar y ofrece cuotas
+//función que corrobora la acción de finalizar y ofrece cuotas
 function finalizarCompra(){
     alert(`El precio final de su carrito es de: $${calcularTotal()}`)
 
-    if(confirm("Desea pagar en cuotas?")){
+    if(confirm("¿Desea pagar en cuotas?")){
         iCuotas = parseInt(prompt(msjCuotas))
         
         while((iCuotas !== 3 && iCuotas !== 6) || isNaN(iCuotas)){
-            console.warn("El numero de cuotas debe ser 3 o 6, ingreselo nuevamente.\n")
+            console.warn("El número de cuotas debe ser 3 o 6, ingréselo nuevamente.\n")
             iCuotas = parseInt(prompt("ingrese '3' o '6' de acuerdo a la cantidad de cuotas requeridas."))
         }
 
-        alert("El pago se realizara en " + iCuotas + " cuotas de $" + calculaCuotas(calcularTotal(), iCuotas))
+        alert("El pago se realizará en " + iCuotas + " cuotas de $" + calculaCuotas(calcularTotal(), iCuotas))
     }
     direccionCliente = prompt("Ingrese la dirección de envío:")
     alert("Muchas Gracias por su compra! ya estamos preparando su pedido.")
 }
 
-// funcion resetear: inicializa las variables de nuevo a 0.
+// función resetear: inicializa las variables de nuevo a 0.
 function resetear(){
     pedidoFrutas=[]
 }
 
-// funcion iniciar: genera el loop del menu
+// función iniciar: genera el loop del menu
 function iniciar(){
     resetear()
     while(continuar){
@@ -119,7 +119,7 @@ function iniciar(){
     }
 }
 
-//funcion menu
+//función menu
 function menu(){
     choice = parseInt(prompt(msjMenu))
     switch(choice){
@@ -144,7 +144,7 @@ function menu(){
     }
 }
 
-// funcion que resta todo el stock vendido de "pedidoFrutas" del stock de gondola. Esta funcion como no interactua con el usuario, se puede corroborar viendo el array gondola, luego de finalizada la compra.
+// función que resta todo el stock vendido de "pedidoFrutas" del stock de gondola. Esta función como no interactúa con el usuario, se puede corroborar viendo el array gondola, luego de finalizada la compra.
 function actualizarStock(arrayVenta){
     let frutaGondola
     arrayVenta.forEach((fruta)=>{
